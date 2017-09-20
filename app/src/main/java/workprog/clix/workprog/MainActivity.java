@@ -53,12 +53,7 @@ public class MainActivity extends AppCompatActivity {
         show_data_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                RealmResults<BodyMeasure> realmResults = realm.where(BodyMeasure.class).findAll();
-                BodyMeasure[] list = new BodyMeasure[realmResults.size()];
-                realmResults.toArray(list);
-                for (BodyMeasure element: list) {
-                    Log.i("XPC", element.toString());
-                }
+
             }
         });
     }

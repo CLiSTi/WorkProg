@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="@color/color1"
+        android:orientation="vertical"
+        android:id="@+id/linearLayout">
+
+        <TextView
+            android:id="@+id/tvBodyMass"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_margin="8dp"
+            android:background="@color/color2"
+            android:gravity="fill_vertical"
+            android:paddingLeft="8dp"
+            android:text="@string/body_mass" />
+
+        <TextView
+            android:id="@+id/tvBodyFat"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_margin="8dp"
+            android:background="@color/color2"
+            android:gravity="fill_vertical"
+            android:paddingLeft="8dp"
+            android:text="@string/body_fat" />
+
+        <TextView
+            android:id="@+id/tvBodyWater"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_margin="8dp"
+            android:background="@color/color2"
+            android:gravity="fill_vertical"
+            android:paddingLeft="8dp"
+            android:text="@string/body_water" />
+
+        <TextView
+            android:id="@+id/tvBodyMuscles"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_margin="8dp"
+            android:background="@color/color2"
+            android:gravity="fill_vertical"
+            android:paddingLeft="8dp"
+            android:text="@string/body_muscles" />
+
+        <TextView
+            android:id="@+id/tvBoneMass"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_margin="8dp"
+            android:background="@color/color2"
+            android:gravity="fill_vertical"
+            android:paddingLeft="8dp"
+            android:text="@string/bone_mass" />
+
+        <TextView
+            android:id="@+id/tvKilocalories"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_margin="8dp"
+            android:background="@color/color2"
+            android:gravity="fill_vertical"
+            android:paddingLeft="8dp"
+            android:text="@string/kilocalories" />
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvDate"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:text="@string/current_date"
+        android:textColor="@color/white"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/linearLayout"
+        android:layout_alignEnd="@+id/linearLayout"
+        android:layout_marginRight="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="15dp" />
+
+</RelativeLayout>
