@@ -33,7 +33,7 @@ public class CustomViewNumberEntry extends LinearLayout {
             backgroundCol1 = typedArray.getInt(R.styleable.CustomViewDataEntry_cm_background1, R.color.color1);
             backgroundCol2 = typedArray.getInt(R.styleable.CustomViewDataEntry_cm_background2, R.color.color2);
             textColor1 = typedArray.getInt(R.styleable.CustomViewDataEntry_cm_textcolor1, R.color.white);
-            textColor2 = typedArray.getInt(R.styleable.CustomViewDataEntry_cm_textcolor1, R.color.black);
+            textColor2 = typedArray.getInt(R.styleable.CustomViewDataEntry_cm_textcolor2, R.color.black);
         } finally {
             typedArray.recycle();
         }

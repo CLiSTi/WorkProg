@@ -1,16 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    tools:context="workprog.clix.workprog.MainActivity">
+    android:layout_height="match_parent"
+    android:background="@color/color3">
 
-    <workprog.clix.workprog.CustomViewNumberEntry
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="12dp"
+        android:paddingEnd="4dp"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp"
+        android:paddingStart="4dp"
+        android:paddingTop="12dp"
+        tools:context="workprog.clix.workprog.MainActivity">
 
-    </workprog.clix.workprog.CustomViewNumberEntry>
+        <workprog.clix.workprog.CustomViewNumberEntry
+            android:id="@+id/cv_weight"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:cm_background1="@color/color1"
+            app:cm_background2="@color/color2"
+            app:cm_labelvalue="Weight"
+            app:cm_textcolor1="@color/white"
+            app:cm_textcolor2="@color/black" />
 
-</LinearLayout>
+        <workprog.clix.workprog.CustomViewNumberEntry
+            android:id="@+id/cv_fat_ratio"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:cm_background1="@color/color1"
+            app:cm_background2="@color/color2"
+            app:cm_labelvalue="Body Fat"
+            app:cm_textcolor1="@color/white"
+            app:cm_textcolor2="@color/black" />
+
+        <workprog.clix.workprog.CustomViewNumberEntry
+            android:id="@+id/cv_water_ratio"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:cm_background1="@color/color1"
+            app:cm_background2="@color/color2"
+            app:cm_labelvalue="Body Water"
+            app:cm_textcolor1="@color/white"
+            app:cm_textcolor2="@color/black" />
+
+        <workprog.clix.workprog.CustomViewNumberEntry
+            android:id="@+id/cv_muscle_ratio"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:cm_background1="@color/color1"
+            app:cm_background2="@color/color2"
+            app:cm_labelvalue="Body Muscles"
+            app:cm_textcolor1="@color/white"
+            app:cm_textcolor2="@color/black" />
+
+        <workprog.clix.workprog.CustomViewNumberEntry
+            android:id="@+id/cv_bone_ratio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cm_background1="@color/color1"
+            app:cm_background2="@color/color2"
+            app:cm_labelvalue="Bone Mass"
+            app:cm_textcolor1="@color/white"
+            app:cm_textcolor2="@color/black" />
+
+        <workprog.clix.workprog.CustomViewNumberEntry
+            android:id="@+id/cv_kilocalories"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:cm_background1="@color/color1"
+            app:cm_background2="@color/color2"
+            app:cm_labelvalue="Kilocalories / Day"
+            app:cm_textcolor1="@color/white"
+            app:cm_textcolor2="@color/black" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/main_activity_ready_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="12dp"
+        android:layout_marginEnd="23dp"
+        android:layout_marginRight="23dp"
+        android:text="Show Data" />
+</RelativeLayout>
