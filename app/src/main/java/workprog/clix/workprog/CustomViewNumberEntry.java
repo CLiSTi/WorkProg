@@ -27,13 +27,19 @@ public class CustomViewNumberEntry extends LinearLayout {
     public CustomViewNumberEntry(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
 
-        TypedArray typedArray = context.getTheme().obtainStyledAttributes(attrs, R.styleable.CustomViewDataEntry, 0, 0);
+        TypedArray typedArray = context.getTheme().obtainStyledAttributes(attrs,
+                R.styleable.CustomViewDataEntry, 0, 0);
         try {
-            labelValue = typedArray.getString(R.styleable.CustomViewDataEntry_cm_labelvalue);
-            backgroundCol1 = typedArray.getInt(R.styleable.CustomViewDataEntry_cm_background1, R.color.color1);
-            backgroundCol2 = typedArray.getInt(R.styleable.CustomViewDataEntry_cm_background2, R.color.color2);
-            textColor1 = typedArray.getInt(R.styleable.CustomViewDataEntry_cm_textcolor1, R.color.white);
-            textColor2 = typedArray.getInt(R.styleable.CustomViewDataEntry_cm_textcolor2, R.color.black);
+            labelValue = typedArray.getString(
+                    R.styleable.CustomViewDataEntry_cm_labelvalue);
+            backgroundCol1 = typedArray.getInt(
+                    R.styleable.CustomViewDataEntry_cm_background1, R.color.color1);
+            backgroundCol2 = typedArray.getInt(
+                    R.styleable.CustomViewDataEntry_cm_background2, R.color.color2);
+            textColor1 = typedArray.getInt(
+                    R.styleable.CustomViewDataEntry_cm_textcolor1, R.color.white);
+            textColor2 = typedArray.getInt(
+                    R.styleable.CustomViewDataEntry_cm_textcolor2, R.color.black);
         } finally {
             typedArray.recycle();
         }
@@ -41,7 +47,8 @@ public class CustomViewNumberEntry extends LinearLayout {
         setOrientation(LinearLayout.HORIZONTAL);
         setGravity(Gravity.CENTER_VERTICAL);
 
-        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        LayoutInflater inflater = (LayoutInflater)
+                context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(R.layout.custom_view_data_entry, this, true);
 
         RelativeLayout relativeLayout = (RelativeLayout) view.findViewById(R.id.relativeLayout);

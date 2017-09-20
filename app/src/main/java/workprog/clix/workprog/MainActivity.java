@@ -2,25 +2,30 @@ package workprog.clix.workprog;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
+import java.util.Date;
+import java.util.List;
 
 import io.realm.*;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button ready_button;
+    private Button ready_button, show_data_button;
     private CustomViewNumberEntry cv_weight, cv_fat, cv_water, cv_muscles, cv_bone, cv_kilocaries;
     private float bodyWeight, bodyFat, bodyWater, bodyMuscles, bodyBone;
     private int dailyKilocaries;
+    private Realm realm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Realm realm = Realm.getDefaultInstance();
+        realm = Realm.getDefaultInstance();
 
         cv_weight     = (CustomViewNumberEntry) findViewById(R.id.cv_weight);
         cv_fat        = (CustomViewNumberEntry) findViewById(R.id.cv_fat_ratio);
@@ -33,16 +38,27 @@ public class MainActivity extends AppCompatActivity {
         ready_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                realm.beginTransaction();
                 updateIndexes();
-                Toast.makeText(getApplicationContext(),
-                        "Weight: " + bodyWeight + "\n" +
-                                "Body Fat: " + bodyFat + "\n" +
-                                "Body Water: " + bodyWater + "\n" +
-                                "Body Muscles: " + bodyMuscles + "\n" +
-                                "Bone Mass: " + bodyBone + "\n" +
-                                "Daily Kilocalories: " + dailyKilocaries
-                        , Toast.LENGTH_SHORT).show();
-
+                Date date = new Date();
+                date.getTime();
+                BodyMeasure bodyMeasure = new BodyMeasure(bodyWeight, bodyFat, bodyWater,
+                        bodyMuscles, bodyBone, dailyKilocaries, date);
+                realm.insert(bodyMeasure);
+                Toast.makeText(getBaseContext(), bodyMeasure.toString(), Toast.LENGTH_SHORT).show();
+                realm.commitTransaction();
+            }
+        });
+        show_data_button = (Button) findViewById(R.id.main_activity_show_button);
+        show_data_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                RealmResults<BodyMeasure> realmResults = realm.where(BodyMeasure.class).findAll();
+                BodyMeasure[] list = new BodyMeasure[realmResults.size()];
+                realmResults.toArray(list);
+                for (BodyMeasure element: list) {
+                    Log.i("XPC", element.toString());
+                }
             }
         });
     }

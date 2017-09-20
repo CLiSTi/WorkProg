@@ -1,5 +1,7 @@
 package workprog.clix.workprog;
 
+import java.util.Date;
+
 import io.realm.RealmObject;
 
 /**
@@ -9,14 +11,28 @@ import io.realm.RealmObject;
 public class BodyMeasure extends RealmObject {
     private float bodyWeight, bodyFat, bodyWater, bodyMuscles, bodyBone;
     private int dailyKilocaries;
+    private Date date;
 
-    public BodyMeasure(float bodyWeight, float bodyFat, float bodyWater, float bodyMuscles, float bodyBone, int dailyKilocaries) {
+    public BodyMeasure(float bodyWeight, float bodyFat, float bodyWater, float bodyMuscles,
+                       float bodyBone, int dailyKilocaries, Date date) {
         this.bodyWeight      = bodyWeight;
         this.bodyFat         = bodyFat;
         this.bodyWater       = bodyWater;
         this.bodyMuscles     = bodyMuscles;
         this.bodyBone        = bodyBone;
         this.dailyKilocaries = dailyKilocaries;
+        this.date            = date;
+    }
+
+    @Override
+    public String toString() {
+        return  "Weight: " + bodyWeight + "\n" +
+                "Body Fat: " + bodyFat + "\n" +
+                "Body Water: " + bodyWater + "\n" +
+                "Body Muscles: " + bodyMuscles + "\n" +
+                "Bone Mass: " + bodyBone + "\n" +
+                "Daily Kilocalories: " + dailyKilocaries +
+                "Date Taken: " + date.toString();
     }
 
     public BodyMeasure() {
@@ -74,5 +90,13 @@ public class BodyMeasure extends RealmObject {
 
     public void setDailyKilocaries(int dailyKilocaries) {
         this.dailyKilocaries = dailyKilocaries;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 }
