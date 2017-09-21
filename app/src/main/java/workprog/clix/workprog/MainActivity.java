@@ -1,21 +1,21 @@
 package workprog.clix.workprog;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
 import java.util.Date;
-import java.util.List;
 
 import io.realm.*;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
 
     private Button ready_button, show_data_button;
-    private CustomViewNumberEntry cv_weight, cv_fat, cv_water, cv_muscles, cv_bone, cv_kilocaries;
+    private CustomNumberEdit cv_weight, cv_fat, cv_water, cv_muscles, cv_bone, cv_kilocaries;
     private float bodyWeight, bodyFat, bodyWater, bodyMuscles, bodyBone;
     private int dailyKilocaries;
     private Realm realm;
@@ -27,12 +27,12 @@ public class MainActivity extends AppCompatActivity {
 
         realm = Realm.getDefaultInstance();
 
-        cv_weight     = (CustomViewNumberEntry) findViewById(R.id.cv_weight);
-        cv_fat        = (CustomViewNumberEntry) findViewById(R.id.cv_fat_ratio);
-        cv_water      = (CustomViewNumberEntry) findViewById(R.id.cv_water_ratio);
-        cv_muscles    = (CustomViewNumberEntry) findViewById(R.id.cv_muscle_ratio);
-        cv_bone       = (CustomViewNumberEntry) findViewById(R.id.cv_bone_ratio);
-        cv_kilocaries = (CustomViewNumberEntry) findViewById(R.id.cv_kilocalories);
+        cv_weight     = (CustomNumberEdit) findViewById(R.id.cv_weight);
+        cv_fat        = (CustomNumberEdit) findViewById(R.id.cv_fat_ratio);
+        cv_water      = (CustomNumberEdit) findViewById(R.id.cv_water_ratio);
+        cv_muscles    = (CustomNumberEdit) findViewById(R.id.cv_muscle_ratio);
+        cv_bone       = (CustomNumberEdit) findViewById(R.id.cv_bone_ratio);
+        cv_kilocaries = (CustomNumberEdit) findViewById(R.id.cv_kilocalories);
 
         ready_button = (Button) findViewById(R.id.main_activity_ready_button);
         ready_button.setOnClickListener(new View.OnClickListener() {
@@ -47,15 +47,18 @@ public class MainActivity extends AppCompatActivity {
                 realm.insert(bodyMeasure);
                 Toast.makeText(getBaseContext(), bodyMeasure.toString(), Toast.LENGTH_SHORT).show();
                 realm.commitTransaction();
+
+                Intent intent = new Intent(MainActivity.this, EntriesListActivity.class);
+                startActivity(intent);
             }
         });
-        show_data_button = (Button) findViewById(R.id.main_activity_show_button);
+        /*show_data_button = (Button) findViewById(R.id.main_activity_show_button);
         show_data_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
             }
-        });
+        });*/
     }
 
     private void updateIndexes() {

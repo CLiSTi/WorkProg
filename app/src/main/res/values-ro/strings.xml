@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="body_mass">Body Mass</string>
-    <string name="body_fat">Body Fat</string>
-    <string name="body_water">Body Water</string>
-    <string name="body_muscles">Body Muscles</string>
-    <string name="bone_mass">Bone Mass</string>
-    <string name="kilocalories">Kilocalories</string>
-    <string name="current_date">Current Date</string>
+    <string name="body_mass">Greutate</string>
+    <string name="body_fat">Masă adipoasă</string>
+    <string name="body_water">Masă Hidrică</string>
+    <string name="bone_mass">Masă Osoasă</string>
+    <string name="kilocalories">KiloCalorii pe zi</string>
+    <string name="current_date">Ziua Curenta</string>
+    <string name="save_measurement">Salveaza Măsurătorile</string>
+    <string name="body_muscles">Masă Musculară</string>
+    <string name="insert_record">Inserează Înregistrare</string>
 </resources>

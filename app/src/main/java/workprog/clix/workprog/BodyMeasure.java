@@ -12,6 +12,8 @@ public class BodyMeasure extends RealmObject {
     private float bodyWeight, bodyFat, bodyWater, bodyMuscles, bodyBone;
     private int dailyKilocaries;
     private Date date;
+    private static int countId = 0;
+    private int id;
 
     public BodyMeasure(float bodyWeight, float bodyFat, float bodyWater, float bodyMuscles,
                        float bodyBone, int dailyKilocaries, Date date) {
@@ -22,6 +24,7 @@ public class BodyMeasure extends RealmObject {
         this.bodyBone        = bodyBone;
         this.dailyKilocaries = dailyKilocaries;
         this.date            = date;
+        id = countId++;
     }
 
     @Override
@@ -42,6 +45,7 @@ public class BodyMeasure extends RealmObject {
         this.bodyMuscles     = 0;
         this.bodyBone        = 0;
         this.dailyKilocaries = 0;
+        id = countId++;
     }
 
     public float getBodyWeight() {
@@ -98,5 +102,9 @@ public class BodyMeasure extends RealmObject {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public int getId() {
+        return id;
     }
 }

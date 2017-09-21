@@ -1,11 +1,13 @@
 <resources>
     <string name="app_name">WorkProg</string>
     <string name="hello_world">Hello World</string>
-    <string name="body_mass">Body Mass</string>
-    <string name="body_fat">Body Fat</string>
-    <string name="body_water">Body Water</string>
-    <string name="body_muscles">Body Muscles</string>
-    <string name="bone_mass">Bone Mass</string>
-    <string name="kilocalories">Kilocalories</string>
+    <string name="body_mass">Weight</string>
+    <string name="body_fat">Fat Percentage</string>
+    <string name="body_water">Water Percentage</string>
+    <string name="body_muscles">Muscles Percentage</string>
+    <string name="bone_mass">Bone Mass Percentage</string>
+    <string name="kilocalories">Daily KiloCalories</string>
     <string name="current_date">Current Date</string>
+    <string name="save_measurement">Save Measurement</string>
+    <string name="insert_record">Insert Record</string>
 </resources>

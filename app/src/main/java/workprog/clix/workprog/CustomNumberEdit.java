@@ -16,15 +16,15 @@ import android.widget.TextView;
  * Created by CLiST on 0020, September 20, 2017.
  */
 
-public class CustomViewNumberEntry extends LinearLayout {
+public class CustomNumberEdit extends LinearLayout {
 
     private String labelValue, textValue;
-    private int backgroundCol1, backgroundCol2, textColor1, textColor2;
+    //private int backgroundCol1, backgroundCol2, textColor1, textColor2;
     public TextView label;
     public EditText editText;
 
 
-    public CustomViewNumberEntry(Context context, @Nullable AttributeSet attrs) {
+    public CustomNumberEdit(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
 
         TypedArray typedArray = context.getTheme().obtainStyledAttributes(attrs,
@@ -32,14 +32,14 @@ public class CustomViewNumberEntry extends LinearLayout {
         try {
             labelValue = typedArray.getString(
                     R.styleable.CustomViewDataEntry_cm_labelvalue);
-            backgroundCol1 = typedArray.getInt(
+/*            backgroundCol1 = typedArray.getInt(
                     R.styleable.CustomViewDataEntry_cm_background1, R.color.color1);
             backgroundCol2 = typedArray.getInt(
                     R.styleable.CustomViewDataEntry_cm_background2, R.color.color2);
             textColor1 = typedArray.getInt(
                     R.styleable.CustomViewDataEntry_cm_textcolor1, R.color.white);
             textColor2 = typedArray.getInt(
-                    R.styleable.CustomViewDataEntry_cm_textcolor2, R.color.black);
+                    R.styleable.CustomViewDataEntry_cm_textcolor2, R.color.black);*/
         } finally {
             typedArray.recycle();
         }
@@ -49,18 +49,18 @@ public class CustomViewNumberEntry extends LinearLayout {
 
         LayoutInflater inflater = (LayoutInflater)
                 context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = inflater.inflate(R.layout.custom_view_data_entry, this, true);
+        View view = inflater.inflate(R.layout.custom_number_edit, this, true);
 
-        RelativeLayout relativeLayout = (RelativeLayout) view.findViewById(R.id.relativeLayout);
-        relativeLayout.setBackgroundColor(backgroundCol1);
+       /* RelativeLayout relativeLayout = (RelativeLayout) view.findViewById(R.id.relativeLayout);
+        relativeLayout.setBackgroundColor(backgroundCol1);*/
 
         label = (TextView)  view.findViewById(R.id.textView);
         label.setText(labelValue);
-        label.setTextColor(textColor1);
+        //label.setTextColor(textColor1);
 
         editText = (EditText) view.findViewById(R.id.editText);
-        editText.setBackgroundColor(backgroundCol2);
-        editText.setTextColor(textColor2);
+        //editText.setBackgroundColor(backgroundCol2);
+        //editText.setTextColor(textColor2);
     }
 
     public void setLabelText(String string) {

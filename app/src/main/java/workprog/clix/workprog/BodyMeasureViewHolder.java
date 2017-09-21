@@ -5,7 +5,9 @@ import android.content.res.Resources;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.RecyclerView.ViewHolder;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Date;
 
@@ -15,39 +17,58 @@ import java.util.Date;
 
 class BodyMeasureViewHolder extends RecyclerView.ViewHolder{
 
-    private TextView tvBodyMass, tvBodyFat, tvBodyWater,
-            tvBodyMuscles, tvBoneMass, tvKilocalories, tvDate;
+    private CustomDataView tvBodyMass, tvBodyFat, tvBodyWater,
+            tvBodyMuscles, tvBoneMass, tvKilocalories;
+    private TextView tvDate;
+    private Button removeButton;
+    private BodyMeasureListAdapter.OnItemClickListener mListener;
 
-    public BodyMeasureViewHolder(View itemView) {
+    public BodyMeasureViewHolder(View itemView, final BodyMeasureListAdapter.OnItemClickListener mListener) {
         super(itemView);
 
-        tvBodyMass = (TextView) itemView.findViewById(R.id.tvBodyMass);
-        tvBodyFat = (TextView) itemView.findViewById(R.id.tvBodyFat);
-        tvBodyWater = (TextView) itemView.findViewById(R.id.tvBodyWater);
-        tvBodyMuscles = (TextView) itemView.findViewById(R.id.tvBodyMuscles);
-        tvBoneMass = (TextView) itemView.findViewById(R.id.tvBoneMass);
-        tvKilocalories = (TextView) itemView.findViewById(R.id.tvKilocalories);
-        tvDate = (TextView) itemView.findViewById(R.id.tvDate);
+        itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mListener.onClick(v, getAdapterPosition(), false);
+            }
+        });
+        this.mListener   = mListener;
+        tvBodyMass       = (CustomDataView) itemView.findViewById(R.id.tvBodyMass);
+        tvBodyFat        = (CustomDataView) itemView.findViewById(R.id.tvBodyFat);
+        tvBodyWater      = (CustomDataView) itemView.findViewById(R.id.tvBodyWater);
+        tvBodyMuscles    = (CustomDataView) itemView.findViewById(R.id.tvBodyMuscles);
+        tvBoneMass       = (CustomDataView) itemView.findViewById(R.id.tvBoneMass);
+        tvKilocalories   = (CustomDataView) itemView.findViewById(R.id.tvKilocalories);
+        tvDate           = (TextView) itemView.findViewById(R.id.tvDate);
+        removeButton     = (Button) itemView.findViewById(R.id.removeButton);
+        removeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mListener.onClick(v, getAdapterPosition(), true);
+            }
+        });
     }
 
     public void setValues(BodyMeasure bodyMeasure) {
         Context context = itemView.getContext();
         Resources resources = context.getResources();
 
-        String bMassString = resources.getString(R.string.body_mass) + bodyMeasure.getBodyWeight();
-        String bFatString = resources.getString(R.string.body_fat) + bodyMeasure.getBodyFat();
-        String bWaterString = resources.getString(R.string.body_water) + bodyMeasure.getBodyWater();
-        String bMusclesString = resources.getString(R.string.body_muscles) + bodyMeasure.getBodyMuscles();
-        String bBoneString = resources.getString(R.string.bone_mass) + bodyMeasure.getBodyBone();
-        String bKcString = resources.getString(R.string.kilocalories) + bodyMeasure.getDailyKilocaries();
-        String bDate = bodyMeasure.getDate().toString();
+        //resources.getString(R.string.body_fat)
 
-        tvBodyMass.setText(bMassString);
-        tvBodyFat.setText(bFatString);
-        tvBodyWater.setText(bWaterString);
-        tvBodyMuscles.setText(bMusclesString);
-        tvBoneMass.setText(bBoneString);
-        tvKilocalories.setText(bKcString);
+        String bMassString      = Float.toString(bodyMeasure.getBodyWeight());
+        String bFatString       = Float.toString(bodyMeasure.getBodyFat());
+        String bWaterString     = Float.toString(bodyMeasure.getBodyWater());
+        String bMusclesString   = Float.toString(bodyMeasure.getBodyMuscles());
+        String bBoneString      = Float.toString(bodyMeasure.getBodyBone());
+        String bKcString        = Float.toString(bodyMeasure.getDailyKilocaries());
+        String bDate            = bodyMeasure.getDate().toString();
+
+        tvBodyMass.setValueText(bMassString);
+        tvBodyFat.setValueText(bFatString);
+        tvBodyWater.setValueText(bWaterString);
+        tvBodyMuscles.setValueText(bMusclesString);
+        tvBoneMass.setValueText(bBoneString);
+        tvKilocalories.setValueText(bKcString);
         tvDate.setText(bDate);
     }
 

@@ -11,16 +11,23 @@ import android.view.ViewGroup;
 
 class BodyMeasureListAdapter extends RecyclerView.Adapter<BodyMeasureViewHolder> {
 
+    public interface OnItemClickListener {
+        public void onClick(View view, int Position, boolean DoRemove);
+    }
+
+    private OnItemClickListener mListener;
+
     private BodyMeasure[] bodyMeasures;
 
-    public BodyMeasureListAdapter(BodyMeasure[] bodyMeasures) {
+    public BodyMeasureListAdapter(BodyMeasure[] bodyMeasures, OnItemClickListener mListener) {
         this.bodyMeasures = bodyMeasures;
+        this.mListener = mListener;
     }
 
     @Override
     public BodyMeasureViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.bodymeasure_element, parent, false);
-        return new BodyMeasureViewHolder(view);
+        return new BodyMeasureViewHolder(view, mListener);
     }
 
     @Override

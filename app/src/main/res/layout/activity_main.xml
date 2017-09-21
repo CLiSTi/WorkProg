@@ -4,102 +4,80 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color3">
+    android:background="@mipmap/background2">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         android:paddingBottom="12dp"
-        android:paddingEnd="4dp"
-        android:paddingLeft="4dp"
-        android:paddingRight="4dp"
-        android:paddingStart="4dp"
+        android:paddingEnd="8dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingStart="8dp"
         android:paddingTop="12dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/rounded_box"
+        android:layout_above="@+id/main_activity_ready_button"
         tools:context="workprog.clix.workprog.MainActivity">
 
-        <workprog.clix.workprog.CustomViewNumberEntry
+        <workprog.clix.workprog.CustomNumberEdit
             android:id="@+id/cv_weight"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:cm_background1="@color/color1"
-            app:cm_background2="@color/color2"
-            app:cm_labelvalue="Weight"
-            app:cm_textcolor1="@color/white"
-            app:cm_textcolor2="@color/black" />
+            android:layout_height="wrap_content"
+            app:cm_labelvalue="@string/body_mass" />
 
-        <workprog.clix.workprog.CustomViewNumberEntry
+        <workprog.clix.workprog.CustomNumberEdit
             android:id="@+id/cv_fat_ratio"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:cm_background1="@color/color1"
-            app:cm_background2="@color/color2"
-            app:cm_labelvalue="Body Fat"
-            app:cm_textcolor1="@color/white"
-            app:cm_textcolor2="@color/black" />
+            android:layout_height="wrap_content"
+            app:cm_labelvalue="@string/body_fat"/>
 
-        <workprog.clix.workprog.CustomViewNumberEntry
+        <workprog.clix.workprog.CustomNumberEdit
             android:id="@+id/cv_water_ratio"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:cm_background1="@color/color1"
-            app:cm_background2="@color/color2"
-            app:cm_labelvalue="Body Water"
-            app:cm_textcolor1="@color/white"
-            app:cm_textcolor2="@color/black" />
+            android:layout_height="wrap_content"
+            app:cm_labelvalue="@string/body_water" />
 
-        <workprog.clix.workprog.CustomViewNumberEntry
+        <workprog.clix.workprog.CustomNumberEdit
             android:id="@+id/cv_muscle_ratio"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:cm_background1="@color/color1"
-            app:cm_background2="@color/color2"
-            app:cm_labelvalue="Body Muscles"
-            app:cm_textcolor1="@color/white"
-            app:cm_textcolor2="@color/black" />
+            android:layout_height="wrap_content"
+            app:cm_labelvalue="@string/body_muscles"/>
 
-        <workprog.clix.workprog.CustomViewNumberEntry
+        <workprog.clix.workprog.CustomNumberEdit
             android:id="@+id/cv_bone_ratio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cm_background1="@color/color1"
-            app:cm_background2="@color/color2"
-            app:cm_labelvalue="Bone Mass"
-            app:cm_textcolor1="@color/white"
-            app:cm_textcolor2="@color/black" />
+            app:cm_labelvalue="@string/bone_mass"/>
 
-        <workprog.clix.workprog.CustomViewNumberEntry
+        <workprog.clix.workprog.CustomNumberEdit
             android:id="@+id/cv_kilocalories"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:cm_background1="@color/color1"
-            app:cm_background2="@color/color2"
-            app:cm_labelvalue="Kilocalories / Day"
-            app:cm_textcolor1="@color/white"
-            app:cm_textcolor2="@color/black" />
+            android:layout_height="wrap_content"
+            app:cm_labelvalue="@string/kilocalories"/>
 
     </LinearLayout>
 
     <Button
         android:id="@+id/main_activity_ready_button"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginBottom="12dp"
-        android:layout_marginEnd="23dp"
-        android:layout_marginRight="23dp"
-        android:text="Save Entry" />
-
-    <Button
-        android:id="@+id/main_activity_show_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/main_activity_ready_button"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginLeft="23dp"
-        android:layout_marginStart="23dp"
-        android:text="Show Data" />
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginStart="12dp"
+        android:background="@drawable/rounded_box_lime"
+        android:text="@string/save_measurement"
+        android:textColor="@color/white" />
+
 </RelativeLayout>

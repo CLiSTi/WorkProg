@@ -3,10 +3,14 @@
 
     <declare-styleable name="CustomViewDataEntry">
         <attr name="cm_labelvalue" format="string"/>
-        <attr name="cm_background1" format="color"/>
+        <!--<attr name="cm_background1" format="color"/>
         <attr name="cm_background2" format="color"/>
         <attr name="cm_textcolor1" format="color"/>
-        <attr name="cm_textcolor2" format="color"/>
+        <attr name="cm_textcolor2" format="color"/>-->
     </declare-styleable>
 
+    <declare-styleable name="CustomDataView">
+        <attr name="cmLabelText" format="string"/>
+        <attr name="cmValueText" format="string"/>
+    </declare-styleable>
 </resources>
